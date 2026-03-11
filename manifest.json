@@ -1,0 +1,101 @@
+{
+  "id": "/?source=pwa_install",
+  "name": "Rentova | Smart Rental & Lifestyle Platform",
+  "short_name": "Rentova",
+  "description": "India's #1 circular economy app. Rent premium furniture, appliances, MacBooks, PS5s, and lifestyle perks on flexible monthly subscriptions with zero liability.",
+  "start_url": "/?utm_source=pwa&utm_medium=app&utm_campaign=homescreen",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#020617",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "dir": "ltr",
+  "lang": "en-IN",
+  "categories": ["shopping", "lifestyle", "business", "utilities"],
+  "prefer_related_applications": false,
+  
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/SKBnPr2c/rentovalogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+
+    {
+      "src": "https://i.postimg.cc/SKBnPr2c/rentovalogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://i.postimg.cc/SKBnPr2c/rentovalogo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "https://www.rentova.in/assets/rentova-seo-banner.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Rentova Smart Dashboard"
+    },
+    {
+      "src": "https://www.rentova.in/assets/rentova-seo-banner.jpg",
+      "sizes": "720x1280",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Rentova Mobile Experience"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "Build Your Plan",
+      "short_name": "Custom Plan",
+      "description": "Create a custom furniture and appliance package",
+      "url": "/build-your-plan/?utm_source=pwa_shortcut",
+      "icons": [{ "src": "https://i.postimg.cc/SKBnPr2c/rentovalogo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Partner Network",
+      "short_name": "B2B Partners",
+      "description": "Initialize a supply partnership with Rentova",
+      "url": "/#partner",
+      "icons": [{ "src": "https://i.postimg.cc/SKBnPr2c/rentovalogo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Explore Inventory",
+      "short_name": "Inventory",
+      "description": "View all available rental assets",
+      "url": "/#business-model",
+      "icons": [{ "src": "https://i.postimg.cc/SKBnPr2c/rentovalogo.png", "sizes": "192x192" }]
+    }
+  ],
+
+  "protocol_handlers": [
+    {
+      "protocol": "web+rentova",
+      "url": "/?link=%s"
+    }
+  ],
+
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
+

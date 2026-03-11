@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <url>
+    <loc>https://www.rentova.in/</loc>
+    <lastmod>2026-02-19T10:00:00+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.00</priority>
+    
+    <image:image>
+      <image:loc>https://www.rentova.in/assets/rentova-seo-banner.jpg</image:loc>
+      <image:title>Rentova - India's #1 Smart Subscription &amp; Rental Platform</image:title>
+      <image:caption>Stop buying, start subscribing. Rent premium furniture, appliances, and tech in India with zero liability.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://i.postimg.cc/SKBnPr2c/rentovalogo.png</image:loc>
+      <image:title>Rentova Official Logo - The Circular Economy Engine</image:title>
+      <image:caption>Rentova official brand logo. The ultimate Furlenco and Rentomojo alternative.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://i.postimg.cc/vH8JRq31/Picsart-25-10-06-03-55-12-039.jpg</image:loc>
+      <image:title>Sourav Kumar Ghosh - Founder and CEO of Rentova Intelligence</image:title>
+      <image:caption>Sourav Kumar Ghosh, System Architect and visionary founder of Rentova, recognized by DPIIT and incubated by 18Startup.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://api.dicebear.com/7.x/initials/svg?seed=DPIIT&amp;backgroundColor=111827</image:loc>
+      <image:title>DPIIT Recognized Startup India - Rentova</image:title>
+      <image:caption>Rentova is an officially recognized innovative startup by the Government of India (DPIIT).</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>1 BHK Full Furniture &amp; Appliance Package on Rent</image:title>
+      <image:caption>Rent a complete 1 BHK setup including bed, mattress, sofa, fridge, and washing machine. Free delivery &amp; setup.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>2 BHK &amp; 3 BHK Luxury Family Furniture Subscription</image:title>
+      <image:caption>Premium home furnishing rentals for 2 BHK and 3 BHK apartments. Upgrade your lifestyle effortlessly.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1593696140826-c58b021acf8b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>Work From Home (WFH) &amp; Student Studio Kits</image:title>
+      <image:caption>Rent ergonomic office chairs, standing desks, study tables, and bachelor essential kits online.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>Rent Smart Appliances - Fridge, Washing Machine, AC</image:title>
+      <image:caption>Subscribe to double-door refrigerators, front-load washing machines, split ACs, and 4K Smart TVs.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1606813907291-d86efa9b94db?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>Rent Sony PS5, Xbox, and Gaming Tech</image:title>
+      <image:caption>Rent the latest Sony PlayStation 5, Xbox consoles, and VR headsets on flexible monthly plans.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>Rent Apple MacBook Pro &amp; Windows Laptops</image:title>
+      <image:caption>High-performance MacBook and laptop rentals for students, freelancers, and IT professionals.</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>Rent Home Gym Equipment &amp; Treadmills</image:title>
+      <image:caption>Rent motorized treadmills, cross-trainers, and home gym equipment. Stay fit without the high upfront cost.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.rentova.in/build-your-plan/</loc>
+    <lastmod>2026-02-19T10:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>Rentova Custom Package Builder</image:title>
+      <image:caption>Build your own custom furniture and appliance rental package. Select exactly what you need.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.rentova.in/Partner/</loc>
+    <lastmod>2026-02-19T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80</image:loc>
+      <image:title>Rentova B2B Partner Network &amp; Yield Engine</image:title>
+      <image:caption>Connect your supply chain via API. Zero marketing CAC, guaranteed yield for furniture manufacturers and OEMs.</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

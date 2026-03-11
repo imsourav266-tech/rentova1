@@ -1,0 +1,1255 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+  /* Brand Colors */
+  --primary: #10b981;       /* Rentova Green */
+  --primary-dark: #047857;  /* Darker Green for text/hover */
+  --primary-light: #ecfdf5; /* Very light green for backgrounds */
+  --accent-blue: #3b82f6;   /* Subtle blue for focus states */
+
+  /* Neutral Colors */
+  --bg-body: #f8fafc;       /* Light Blue-Grey Background */
+  --bg-card: #ffffff;       /* Pure White Cards */
+  --text-main: #0f172a;     /* Dark Slate (Almost Black) */
+  --text-muted: #64748b;    /* Muted Slate Text */
+  --border: #e2e8f0;        /* Light Grey Borders */
+
+  /* Spacing & Effects */
+  --radius-lg: 18px;        /* Large rounded corners */
+  --radius-sm: 10px;        /* Smaller rounded corners */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+                 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-float: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; /* Removes blue tap box on mobile */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding-bottom: 120px; /* Extra space for sticky footer */
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========================================
+   2. HERO HEADER
+   ========================================= */
+.hero-header {
+  text-align: center;
+  padding: 40px 10px 30px;
+  margin-bottom: 10px;
+}
+
+.brand-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-light), #fff);
+  color: var(--primary-dark);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  margin-bottom: 16px;
+  box-shadow: 0 2px 5px rgba(16, 185, 129, 0.1);
+}
+
+.hero-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   3. CATEGORY CARD & STRUCTURE
+   ========================================= */
+.category-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.cat-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cat-icon {
+  font-size: 32px;
+  background: var(--primary-light);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+}
+
+.cat-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cat-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* =========================================
+   4. ACCORDION (Sub-Categories)
+   ========================================= */
+.accordion-group {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #f8fafc;
+  border: none;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accordion-header:hover {
+  background: #f1f5f9;
+}
+
+.accordion-header .arrow {
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-header.active .arrow {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+  background: white;
+}
+
+/* =========================================
+   5. ITEM ROWS (The Products)
+   ========================================= */
+.item-row {
+  display: flex;
+  align-items: flex-start; /* Align top so circle stays with title */
+  gap: 14px;
+  padding: 16px 18px;
+  border-top: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.item-row:hover {
+  background: #fafafa;
+}
+
+/* Selected State */
+.item-row.selected {
+  background: #f0fdf4; /* Slight green tint */
+}
+
+/* Custom Check Circle */
+.check-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  background: white;
+  flex-shrink: 0;
+  margin-top: 2px; /* Visual alignment with title text */
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item-row.selected .check-circle {
+  border-color: var(--primary);
+  background: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.item-row.selected .check-circle::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* Item Text Layout */
+.item-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.item-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.item-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* Price Badge */
+.price-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 5px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+/* Real Checkbox (Hidden Logic) */
+.real-checkbox {
+  display: none;
+}
+
+/* =========================================
+   6. QUANTITY CONTROLLER (Green Pill)
+   ========================================= */
+.qty-control {
+  display: none; /* Hidden by default */
+  align-items: center;
+  gap: 16px;
+  background: #d1fae5; /* Distinct green */
+  padding: 6px 10px;
+  border-radius: 50px;
+  width: fit-content;
+  margin-top: 12px;
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.item-row.selected .qty-control {
+  display: flex;
+}
+
+.qty-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  padding-bottom: 2px; /* Visual center tweak */
+  transition: transform 0.1s;
+}
+
+.qty-btn:active {
+  transform: scale(0.9);
+}
+
+.qty-display {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  min-width: 16px;
+  text-align: center;
+}
+
+/* =========================================
+   7. COMING SOON SECTIONS
+   ========================================= */
+.coming-soon-block {
+  background: linear-gradient(180deg, #fefce8 0%, #fff7ed 100%);
+  border: 1px dashed #fdba74;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.coming-header {
+  font-size: 14px;
+  font-weight: 700;
+  color: #9a3412;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.coming-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.coming-pill {
+  font-size: 12px;
+  font-weight: 600;
+  color: #c2410c;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(253, 186, 116, 0.4);
+}
+
+/* =========================================
+   8. ENQUIRY FORM
+   ========================================= */
+.enquiry-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-float);
+  padding: 28px;
+  margin-top: 30px;
+}
+
+.enquiry-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, var(--text-main), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.enquiry-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text-main);
+  transition: all 0.2s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--text-main); /* Premium Dark Button */
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.submit-btn:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+/* =========================================
+   9. STICKY SUMMARY BAR (Glassmorphism)
+   ========================================= */
+.sticky-summary {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 650px;
+  background: rgba(15, 23, 42, 0.9); /* Dark semi-transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 20px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  animation: floatUp 0.5s ease-out;
+}
+
+@keyframes floatUp {
+  from { transform: translate(-50%, 100%); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.summary-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.summary-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.summary-btn {
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.summary-btn:hover {
+  background: #059669;
+}
+
+/* =========================================
+   10. SUCCESS POPUP (New Addition)
+   ========================================= */
+.popup-overlay {
+  position: fixed;
+  inset: 0; /* Top, Right, Bottom, Left: 0 */
+  background: rgba(15, 23, 42, 0.6); /* Dark tint */
+  backdrop-filter: blur(8px); /* Glass blur effect */
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* When Active (Added via JS) */
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-card {
+  background: #ffffff;
+  width: 90%;
+  max-width: 360px;
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.popup-overlay.active .popup-card {
+  transform: scale(1);
+}
+
+/* Animated Checkmark Icon */
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #dcfce7; /* Light Green */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+}
+
+.checkmark {
+  width: 32px;
+  height: 32px;
+  stroke-width: 3;
+  stroke: #10b981; /* Rentova Green */
+  stroke-miterlimit: 10;
+}
+
+.popup-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.popup-msg {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.popup-close-btn {
+  background: var(--text-main); /* Dark Button */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.1s;
+}
+
+.popup-close-btn:hover {
+  transform: translateY(-1px);
+  background: #1e293b;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* =========================================
+   PREMIUM COMING SOON CARDS (GRAY FADE + RED BADGE)
+   ========================================= */
+
+/* Container for the two cards */
+.future-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Side by side */
+  gap: 16px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px dashed #e2e8f0; /* Subtle separator */
+}
+
+/* Mobile: Stack them */
+@media (max-width: 600px) {
+  .future-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The Card Itself */
+.future-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  /* Premium Shadow */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+.future-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+/* Card Header Area */
+.future-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.future-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.future-info h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.future-info span {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- UPDATED: Red Status Badge "SOON" --- */
+.status-pill {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  
+  /* Red Styling */
+  background: #ffe4e6; /* Rose background */
+  color: #be123c;       /* Deep red text */
+  border: 1px solid rgba(190, 18, 60, 0.1);
+}
+
+/* Specific Theme Colors (Subtle) */
+.tech-theme .future-icon-box { background: #eff6ff; } /* Light Blue bg */
+.life-theme .future-icon-box { background: #f0fdf4; } /* Light Green bg */
+
+/* List Items */
+.future-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.future-list li {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #f8fafc; /* Keep the subtle grey background */
+}
+
+.future-list li:last-child {
+  margin-bottom: 0;
+}
+
+.future-list strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   COMPACT PREMIUM FORM DESIGN
+   ========================================= */
+
+.enquiry-card {
+  background: #ffffff;
+  border-radius: 20px;
+  /* Premium border that blends in */
+  border: 1px solid #e2e8f0;
+  /* Soft shadow to lift it slightly */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-top: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative top border */
+.enquiry-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+}
+
+.enquiry-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.enquiry-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.enquiry-subtitle {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* --- GRID LAYOUT (Makes it compact) --- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% - 50% split */
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Mobile: Stack fields */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Special Grid for Tenure (Small) + Message (Wide) */
+.mixed-grid {
+  grid-template-columns: 1fr 2fr; /* Tenure takes 1/3, Message takes 2/3 */
+}
+@media (max-width: 600px) { .mixed-grid { grid-template-columns: 1fr; } }
+
+
+/* --- INPUT STYLING --- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px; /* Smaller padding for compact feel */
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc; /* Light grey bg */
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s;
+}
+
+/* Focus State - Premium Glow */
+.form-group input:focus,
+.form-group select:focus {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* --- SUBMIT BUTTON --- */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #0f172a; /* Dark Elegant Black/Blue */
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Footer Text */
+.form-footer {
+  text-align: center;
+  margin-top: 12px;
+}
+.form-footer span {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* =========================================
+   3. COMPACT CATEGORY CARD
+   ========================================= */
+.category-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  padding: 20px; /* Reduced from 24px */
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.cat-header {
+  display: flex;
+  align-items: center; /* Center align vertically */
+  gap: 14px;
+  margin-bottom: 18px; /* Reduced spacing */
+}
+
+.cat-icon {
+  font-size: 24px; /* Smaller icon */
+  background: var(--primary-light);
+  width: 44px; /* Smaller box */
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: var(--primary-dark);
+}
+
+.cat-title {
+  font-size: 18px; /* Slightly more compact title */
+  font-weight: 800;
+  margin-bottom: 2px;
+  color: var(--text-main);
+}
+
+.cat-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* =========================================
+   4. SLEEK ACCORDION (Sub-Categories)
+   ========================================= */
+.accordion-group {
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px; /* Tighter padding */
+  background: #f8fafc;
+  border: none;
+  font-family: inherit;
+  font-weight: 700; /* Bolder for contrast */
+  font-size: 14px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accordion-header:hover {
+  background: #f1f5f9;
+}
+
+.accordion-header .arrow {
+  font-size: 10px;
+  color: #94a3b8;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-header.active .arrow {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Snappier animation */
+  background: white;
+}
+
+/* =========================================
+   5. COMPACT ITEM ROWS (The Products)
+   ========================================= */
+.item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px; /* SIGNIFICANTLY REDUCED PADDING */
+  border-top: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.item-row:first-child {
+  border-top: none;
+}
+
+.item-row:hover {
+  background: #fafafa;
+}
+
+/* Selected State */
+.item-row.selected {
+  background: #f0fdf4;
+}
+
+/* Custom Check Circle */
+.check-circle {
+  width: 20px; /* Smaller circle */
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  background: white;
+  flex-shrink: 0;
+  margin-top: 2px;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item-row.selected .check-circle {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.item-row.selected .check-circle::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Item Text Layout */
+.item-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.item-name {
+  font-size: 14px; /* Cleaner font size */
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.item-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.3;
+  max-width: 200px; /* Prevent text from hitting price */
+}
+
+/* Price Badge */
+.price-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 4px 8px; /* Compact badge */
+  border-radius: 6px; /* Slightly squarer look */
+  white-space: nowrap;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+/* =========================================
+   6. QUANTITY CONTROLLER (Compact)
+   ========================================= */
+.qty-control {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff; /* White bg for contrast on selected green row */
+  border: 1px solid #bbf7d0;
+  padding: 4px 8px;
+  border-radius: 8px;
+  width: fit-content;
+  margin-top: 8px; /* Less vertical gap */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.9) translateY(-5px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.item-row.selected .qty-control {
+  display: flex;
+}
+
+.qty-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px; /* Squarer buttons */
+  border: none;
+  background: var(--primary); /* Rentova Green */
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  padding-bottom: 2px;
+  transition: background 0.1s;
+}
+
+.qty-btn:hover {
+  background: var(--primary-dark);
+}
+
+.qty-display {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  min-width: 14px;
+  text-align: center;
+}
+
+ /* --- 1. SPACING FIX --- */
+  /* Pushes content down so navbar doesn't cover the title */
+  body {
+    padding-top: 90px !important; 
+  }
+
+  /* Reset */
+  .universal-nav * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+  /* Navbar Container */
+  .universal-nav {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    z-index: 9999;
+    padding: 0 24px; /* Side padding */
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-container {
+    width: 100%; 
+    max-width: 100%; /* Full width allowing left alignment */
+    margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  /* Logo */
+  .logo-img {
+    height: 120px; /* Logo Size */
+    width: auto;
+    display: block;
+  }
+
+  /* Links */
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-item { text-decoration: none; color: #334155; font-weight: 500; font-size: 15px; transition: 0.2s; }
+  .nav-item:hover { color: #10b981; }
+
+  /* Buttons */
+  .nav-actions { display: flex; align-items: center; gap: 16px; }
+  .nav-cta {
+    background: #10b981; color: white; text-decoration: none;
+    padding: 10px 20px; border-radius: 50px; font-weight: 700;
+    font-size: 14px; transition: 0.2s; white-space: nowrap;
+  }
+  .nav-cta:hover { background: #059669; transform: translateY(-1px); }
+
+  /* Mobile Helpers */
+  .mobile-cta { display: none; }
+  .mobile-menu-icon { display: none; flex-direction: column; gap: 6px; cursor: pointer; }
+  .mobile-menu-icon span { width: 26px; height: 3px; background: #334155; border-radius: 2px; }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .desktop-cta { display: none; }
+    .mobile-menu-icon { display: flex; }
+    
+    .nav-links {
+      position: absolute;
+      top: 70px; left: 0; width: 100%;
+      background: white;
+      flex-direction: column; padding: 20px; gap: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      display: none; 
+    }
+    .nav-links.active { display: flex; }
+    .mobile-cta { display: inline-block; width: 100%; text-align: center; }
+  }
+  /* =========================================
+   PREMIUM DARK NAVBAR (From Main Site)
+   ========================================= */
+.nav-dark {
+  position: fixed; top: 0; left: 0; width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 6%; z-index: 1000;
+  background: rgba(2, 6, 23, 0.9); /* Dark background */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-brand-wrapper { position: relative; width: 140px; height: 40px; }
+
+.nav-logo-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 100px; height: 40px; 
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
+  filter: blur(20px); z-index: -1;
+}
+
+.nav-logo-mask { width: 100%; height: 100%; overflow: hidden; position: relative; }
+
+.nav-logo-img {
+  width: 70%; position: absolute; top: 50%; left: 00px;
+  transform: translateY(-50%) scale(1.6);
+  mix-blend-mode: screen; 
+  filter: brightness(100) contrast(1.2);
+}
+
+.desktop-menu { display: flex; gap: 30px; }
+
+.nav-link { 
+  color: #94a3b8; /* Muted Grey */
+  text-decoration: none; 
+  font-weight: 600; 
+  font-size: 0.9rem; 
+  transition: 0.2s; 
+}
+
+.nav-link:hover { color: #ffffff; }
+
+/* ADJUST BODY PADDING TO ACCOUNT FOR FIXED NAV */
+body {
+  padding-top: 80px; /* Pushes content down so nav doesn't cover it */
+}
